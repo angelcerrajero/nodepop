@@ -1,0 +1,98 @@
+[ 
+        {
+        "name": "Bicicleta", 
+        "sell": true,
+        "price": 230.15,
+        "photo": "bici.jpg",
+        "tags": [ "lifestyle", "motor"]
+        }, 
+        
+        {
+        "name": "Skoda-Karoq", 
+        "sell": true,
+        "price": 23005,
+        "photo": "karoq.jpg",
+        "tags": ["motor"]
+        },
+        
+        {
+        "name": "iphoneX", 
+        "sell": true,
+        "price": 830.50,
+        "photo": "iphone.jpg",
+        "tags": [ "lifestyle", "mobile"]
+        },
+        
+        {
+        "name": "XiaomiMi8", 
+        "sell": true,
+        "price": 335,
+        "photo": "xiaomimi8.jpg",
+        "tags": [ "lifestyle", "mobile"]
+        },
+
+        {
+        "name": "macbookpro15", 
+        "sell": true,
+        "price": 730.15,
+        "photo": "macbookpro15.jpg",
+        "tags": [ "lifestyle", "work"]
+        },
+
+        {
+        "name": "SeatAteca", 
+        "sell": true,
+        "price": 25769,
+        "photo": "ateca.jpg",
+        "tags": [ "motor"]
+        },
+
+        {
+        "name": "Patinete", 
+        "sell": true,
+        "price": 85.95,
+        "photo": "patinete.jpg",
+        "tags": [ "lifestyle", "motor"]
+        },
+
+        {
+        "name": "Servidor-Dell", 
+        "sell": false,
+        "price": 900,
+        "photo": "servidor-dell.jpg",
+        "tags": ["work"]
+        },
+
+        {
+        "name": "MonitorLG", 
+        "sell": false,
+        "price": 70,
+        "photo": "monitorlg.jpg",
+        "tags": [ "lifestyle", "work"]
+        },
+
+        {
+        "name": "gafas-hawkers", 
+        "sell": true,
+        "price": 15,
+        "photo": "gafashawkers.jpg",
+        "tags": [ "lifestyle"]
+        },
+
+        {
+        "name": "BMWGS", 
+        "sell": true,
+        "price": 9230,
+        "photo": "bmwgs.jpg",
+        "tags": ["motor"]
+        },
+
+        {
+        "name": "SamsungS10", 
+        "sell": false,
+        "price": 630.15,
+        "photo": "samsungs10.jpg",
+        "tags": [ "mobile", "lifestyle"]
+        }
+]
+        

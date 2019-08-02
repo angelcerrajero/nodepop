@@ -11,16 +11,42 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
+app.engine('html', require('ejs').__express);
 
+// MIDDLEWARES
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+/**
+ * CONEXION A LA BBDD MONGODB
+ */
+
+require('./lib/connectMongoose');
+
+
+
+//VARIABLES GLOBALES
+app.locals.title = 'NodePop';
+
+
+
+/**
+ * RUTAS DE MI API
+ */
+app.use('/api/product', require('./routes/api/products'));
+
+
+
+/**
+ * Rutas de la aplicación web.
+ */
+app.use('/',  require('./routes/index'));
 app.use('/users', usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -34,7 +34,34 @@ try {
 
 
     if(typeof price !== 'undefined'){
-        filter.price = price;
+        const priceToFilter = price.split("-");
+        
+        if(priceToFilter.length === 1){
+            console.log("solo hay 1 elemento");
+            filter.price = price
+            
+        }else if (priceToFilter.length === 2){
+            const campo1 = parseInt(priceToFilter[0]);
+            const campo2 = parseInt(priceToFilter[1]);
+            console.log(campo1);
+            console.log(campo2);
+            console.log(priceToFilter[0]);
+            console.log(priceToFilter[1]);
+
+
+            if(campo1 >= 0 && campo2 >= 0){
+                filter.price = {'$gte': campo1, '$lte': campo2 };
+            }
+            
+            if(campo1 >= 0){
+                filter.price = {'$gte': campo1 };
+            }
+            
+            if(campo2 >= 0){
+                filter.price = {'$lte': campo2 };
+            }
+        }
+
     }
 
 const products = await Product.list({filter, skip, limit, fields, sort});

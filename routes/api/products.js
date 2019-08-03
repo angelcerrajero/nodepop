@@ -21,7 +21,7 @@ try {
     const filter = {};
 
     if(name){
-        filter.name = name;
+        filter.name = new RegExp('^' + req.query.name, "i"); //El "i" es para que sea insensible a mayusculas/minusculas
     }
 
     if(sell){
@@ -43,21 +43,12 @@ try {
         }else if (priceToFilter.length === 2){
             const campo1 = parseInt(priceToFilter[0]);
             const campo2 = parseInt(priceToFilter[1]);
-            console.log(campo1);
-            console.log(campo2);
-            console.log(priceToFilter[0]);
-            console.log(priceToFilter[1]);
-
-
+            
             if(campo1 >= 0 && campo2 >= 0){
                 filter.price = {'$gte': campo1, '$lte': campo2 };
-            }
-            
-            if(campo1 >= 0){
+            }else if(campo1 >= 0){
                 filter.price = {'$gte': campo1 };
-            }
-            
-            if(campo2 >= 0){
+            }else if(campo2 >= 0){
                 filter.price = {'$lte': campo2 };
             }
         }
@@ -72,7 +63,6 @@ res.json({success: true, results: products});
     
 }
 });
-
 
 
 

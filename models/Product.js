@@ -9,7 +9,7 @@ const productSchema = mongoose.Schema({
     sell:   Boolean,
     price:  Number,
     photo:  String,
-    tags:   Array,
+    tags:   Array
 
 });
 
@@ -17,13 +17,14 @@ const productSchema = mongoose.Schema({
 // Uso un arrow function para evitar errores en los modelos. Hay posibilidad de perder el this, asi que siempre sin arrow funct.
 productSchema.statics.list = function({filter, skip, limit, fields, sort}){
     const query = Product.find(filter);
-    query.limit(skip);
+    query.skip(skip);
     query.limit(limit);
     query.select(fields);
     query.sort(sort);
 
     return query.exec();
 };
+
 
 
 //Defino el Product y le digo que el model tiene como nombre 'Product' para que haga la relación con la colección que tengo creada en MongoDB. 

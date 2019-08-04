@@ -37,7 +37,6 @@ try {
         const priceToFilter = price.split("-");
         
         if(priceToFilter.length === 1){
-            console.log("solo hay 1 elemento");
             filter.price = price
             
         }else if (priceToFilter.length === 2){
@@ -66,26 +65,38 @@ res.json({success: true, results: products});
 
 
 
-router.get('/:id', async (req, res, next) =>{
-    console.log('req.params', req.params);
+
+
+
+router.post('/', async (req, res, next) =>{
     try {
-        const _id = req.params.id;
-        console.log(_id)
-        const product = await Product.findById(_id).exec();
-        console.log(product);
+        const data = req.body;
+        const product = new Product(data);
 
-        if(!product){
-            res.status(404).json({ success: false }); // Si no encuentro el ID, respondo con un 404 y hago un return para finalizar.
-            return;
-        }
+        const newProduct = await product.save();
+        res.json({success: true, result: newProduct});
 
-        res.json({ success: true, result: product});
+        
+    } catch (err) {
+        next(err);
+    }
+
+
+});
+
+
+
+router.get('/tags', async (req, res, next) =>{
+    
+    try {
+        
+        const resultado = await Product.distinct('tags');
+        res.json({success: true, result: resultado});
 
 
     } catch (err) {
-        next(err);
-    };
+        next(err)
+    }
 });
-
 
 module.exports = router;

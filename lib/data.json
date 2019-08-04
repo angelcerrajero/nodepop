@@ -93,6 +93,62 @@
         "price": 630.15,
         "photo": "samsungs10.jpg",
         "tags": [ "mobile", "lifestyle"]
+        },
+
+        {
+        "name": "ventilador", 
+        "sell": true,
+        "price": 28,
+        "photo": "ventilador.jpg",
+        "tags": ["lifestyle"]
+        },
+
+        {
+        "name": "Soporte-macbook", 
+        "sell": true,
+        "price": 59.85,
+        "photo": "soporte-macbook.jpg",
+        "tags": [ "work", "lifestyle"]
+        },
+
+        {
+        "name": "Xiaomi-Mi3", 
+        "sell": true,
+        "price": 223.99,
+        "photo": "xiaomi-mi3.jpg",
+        "tags": [ "mobile", "lifestyle"]
+        },
+
+        {
+        "name": "SamsungNote10", 
+        "sell": true,
+        "price": 830.15,
+        "photo": "samsungnote10.jpg",
+        "tags": [ "mobile", "lifestyle"]
+        },
+
+        {
+        "name": "cargador-multi-usb", 
+        "sell": true,
+        "price": 39,
+        "photo": "cargador-multi-usb.jpg",
+        "tags": [ "mobile", "lifestyle", "work"]
+        },
+
+        {
+        "name": "cargador-usb-coche", 
+        "sell": true,
+        "price": 61,
+        "photo": "cargador-usb-coche.jpg",
+        "tags": [ "mobile", "motor"]
+        },
+
+        {
+        "name": "mesa-despacho", 
+        "sell": true,
+        "price": 330,
+        "photo": "mesa-despacho.jpg",
+        "tags": [ "work", "lifestyle"]
         }
 ]
         

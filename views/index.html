@@ -6,7 +6,18 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-    <%=  %>
+  </p>
+    <h2>Listado de Productos Nodepop</h2>
+    <% products.forEach(product => { %>
+      <div class="elements">
+        <div class="name"><p class="name-text"><%= product.name %></p> 
+            <div class="price"><ul>Precio: <%= product.price %> </ul></div>
+            <div class="sell"><ul>En Venta: <%= product.sell %> </ul></div>
+            <div class="photo"><ul>Foto: <%= product.photo %> </ul></div>
+            <div class="tags"><ul>Tags: <%= product.tags %> </ul></div>
+        </div>
+      </div>
+
+    <% }) %>
   </body>
 </html>

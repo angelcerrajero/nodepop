@@ -55,7 +55,8 @@ try {
     }
 
 const products = await Product.list({filter, skip, limit, fields, sort});
-res.json({success: true, results: products});
+
+res.render('index', {products});
 
 } catch (err) {
     next(err);

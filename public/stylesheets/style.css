@@ -6,3 +6,24 @@ body {
 a {
   color: #00B7FF;
 }
+
+.elements {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  
+}
+
+.name {
+  border: solid 0.1px darkblue;
+  margin: 1px;
+  justify-content: center;
+}
+
+
+.name-text{
+  margin-left: 10px;
+  font-size: 1rem;
+  
+
+}

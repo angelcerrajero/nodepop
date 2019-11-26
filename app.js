@@ -21,6 +21,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Middleware para configurar los settings de i18n
+const i18n = require('./lib/i18nConfigure')();
+app.use(i18n.init);
+
 /**
  * CONEXION A LA BBDD MONGODB
  */
@@ -37,7 +41,16 @@ app.locals.title = 'NodePop';
 /**
  * RUTAS DE MI API
  */
-app.use('/api/product', require('./routes/api/products'));
+const loginController = require('./routes/api/loginController');
+const jwtAuth = require('./lib/jwtAuth');
+
+app.post('/authenticate', loginController.loginJWT);   
+app.use('/api/product', jwtAuth(), require('./routes/api/products'));
+// app.use('/apiv1/*', require('./lib/jwtAuth'));
+
+
+
+
 
 
 
@@ -45,8 +58,9 @@ app.use('/api/product', require('./routes/api/products'));
 /**
  * Rutas de la aplicación web.
  */
-app.use('/',  require('./routes/index'));
+// app.use('/', jwtAuth(), require('./routes/api/products'));
 app.use('/users', usersRouter);
+app.use('/change-locale', require('./routes/api/change-locale'));
 
 
 // catch 404 and forward to error handler

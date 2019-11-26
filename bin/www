@@ -8,6 +8,11 @@ var app = require('../app');
 var debug = require('debug')('nodepop:server');
 var http = require('http');
 
+//Cargo el dotenv para las variables de entorno
+require('dotenv').config();
+
+
+
 /**
  * Get port from environment and store in Express.
  */

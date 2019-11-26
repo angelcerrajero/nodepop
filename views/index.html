@@ -7,7 +7,14 @@
   <body>
     <h1><%= title %></h1>
   </p>
-    <h2>Listado de Productos Nodepop</h2>
+  <div>
+  <h5><%= __('Cambio de idioma') %></h5>
+  <% getLocales().forEach( locale => { %>
+    <a href="/change-locale/<%= locale %>"><%= locale %></a>&nbsp;
+  <% }) %>  
+</div>
+  <h2><%= __('Listado de Productos') %> Nodepop</h2>
+
     <% products.forEach(product => { %>
       <div class="elements">
         <div class="name"><p class="name-text"><%= product.name %></p> 

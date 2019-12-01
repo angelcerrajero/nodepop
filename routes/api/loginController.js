@@ -29,7 +29,7 @@ class LoginController {
       // creamos un JWT
       // no meter una instancia de mongoose en el Payload!!!!!!!!
       const token = jwt.sign({ _id: usuario._id }, process.env.JWT_SECRET, {
-        expiresIn: '2d'
+        expiresIn: '7d'
       });
 
       // respondemos

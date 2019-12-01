@@ -2,9 +2,20 @@
 
 const express = require('express');
 const router = express.Router();
-
+const multer = require('multer');
+const path = require('path');
 const Product = require('./../../models/Product')
+const cote = require('cote');
 
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, path.join(__dirname, '..', '..', 'public', 'images', 'products'))
+    },
+    filename: function (req, file, cb) {
+      cb(null, Date.now() + '-' + file.originalname)
+    }
+  })
+const upload = multer({ storage: storage });
 
 router.get('/', async (req, res, next) =>{
 try {
@@ -69,13 +80,24 @@ res.render('index', {products});
 
 
 
-router.post('/', async (req, res, next) =>{
+router.post('/', upload.single('photo'), async (req, res, next) =>{
     try {
         const data = req.body;
+        const file = req.file;
+        console.log('los datos son:', data, file, file.originalname)
         const product = new Product(data);
-
         const newProduct = await product.save();
         res.json({success: true, result: newProduct});
+        // Requester para generador de thumbnails
+        const requester = new cote.Requester({ name: 'thumbgenerator client' });
+        requester.send({
+            type: 'thumbnails',
+            file: file,
+            filename: file.originalname,
+            path: file.path,
+        }, response => {
+            console.log(`responde el cliente --> ${response}`);
+          })
 
         
     } catch (err) {

@@ -4,6 +4,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -17,7 +18,7 @@ app.engine('html', require('ejs').__express);
 // MIDDLEWARES
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -45,7 +46,7 @@ const loginController = require('./routes/api/loginController');
 const jwtAuth = require('./lib/jwtAuth');
 
 app.post('/authenticate', loginController.loginJWT);   
-app.use('/api/product', jwtAuth(), require('./routes/api/products'));
+app.use('/api/product', require('./routes/api/products'));
 // app.use('/apiv1/*', require('./lib/jwtAuth'));
 
 

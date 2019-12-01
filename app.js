@@ -46,12 +46,7 @@ const loginController = require('./routes/api/loginController');
 const jwtAuth = require('./lib/jwtAuth');
 
 app.post('/authenticate', loginController.loginJWT);   
-app.use('/api/product', require('./routes/api/products'));
-// app.use('/apiv1/*', require('./lib/jwtAuth'));
-
-
-
-
+app.use('/api/product', jwtAuth(), require('./routes/api/products'));
 
 
 

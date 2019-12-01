@@ -84,7 +84,6 @@ router.post('/', upload.single('photo'), async (req, res, next) =>{
     try {
         const data = req.body;
         const file = req.file;
-        console.log('los datos son:', data, file, file.originalname)
         const product = new Product(data);
         const newProduct = await product.save();
         res.json({success: true, result: newProduct});

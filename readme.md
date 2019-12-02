@@ -61,6 +61,7 @@ For your data, use MongoDB , where you save a list of ads with the following Sch
 
 });`
 
+
 ### Description of fields
 
 * **name**: The Product Name

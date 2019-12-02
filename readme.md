@@ -52,14 +52,14 @@ Nodepop is an APP created with Node and Express. That app has two parts, one for
 
 For your data, use MongoDB , where you save a list of ads with the following Schema:
 
-const productSchema = mongoose.Schema({
+`const productSchema = mongoose.Schema({
     name:   String,
     sell:   Boolean,
     price:  Number,
     photo:  String,
     tags:   Array
 
-});
+});`
 
 ### Description of fields
 
